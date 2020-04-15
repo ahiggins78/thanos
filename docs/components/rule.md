@@ -179,14 +179,14 @@ see WARN log level. This might suggest that those evaluations return partial res
 
 Those metrics are important for vanilla Prometheus as well, but even more important when we rely on (sometimes WAN) network.
 
-// TODO(bwplotka): Rereview them after recent changes in metrics.
+<!-- TODO(bwplotka): Rereview them after recent changes in metrics. -->
 
 See [alerts](/examples/alerts/alerts.md#Ruler) for more example alerts for ruler.
 
 NOTE: It is also recommended to set a mocked Alert on Ruler that checks if Query is up. This might be something simple like `vector(1)` query, just
 to check if Querier is live.
 
-## Performance.
+## Performance
 
 As rule nodes outsource query processing to query nodes, they should generally experience little load. If necessary, functional sharding can be applied by splitting up the sets of rules between HA pairs.
 Rules are processed with deduplicated data according to the replica label configured on query nodes.
